@@ -5,6 +5,12 @@ dotenv.config();
 
 const app = express();
 
+
+import jobRouter from "./routes/jobs.routes.js"
+
+
+app.use('/api/', jobRouter);
+
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
