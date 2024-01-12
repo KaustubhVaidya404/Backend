@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getDashboard } from "../controllers/jobs.controllers.js";
+import { getDashboard,sendSampleData } from "../controllers/jobs.controllers.js";
 
 const router = Router();
 

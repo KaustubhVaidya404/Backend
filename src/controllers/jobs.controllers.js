@@ -1,31 +1,21 @@
 
-const getDashboard = (req, res)=>{
-    res.send([
-        {
-            "id": "001",
-            "job title": "Java full stack dev",
-            "duration": "6 months",
-            "stipend": "1000"
-        },
-        {
-            "id": "002",
-            "job title": "MERN stack dev",
-            "duration": "6 months",
-            "stipend": "1000"
-        },
-        {
-            "id": "003",
-            "job title": "Frontend dev",
-            "duration": "6 months",
-            "stipend": "1000"
-        },
-        {
-            "id": "004",
-            "job title": "Backend dev",
-            "duration": "6 months",
-            "stipend": "1000"
-        },
-    ])
+import db from "../db/firestore.js";
+
+const docRef = db.collection('job').doc('samplejobs');
+const getdoc = await docRef.get();
+
+const getDashboard = async (req, res)=>{
+    if(getdoc.exists){
+        const data = getdoc.data();
+        res.json({
+            success: true,
+            data
+        })
+    } else {
+        res.json({ success: false, message: 'Document not found' });
+    }
 };
+
+
 
 export {getDashboard}
