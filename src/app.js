@@ -8,8 +8,9 @@ const app = express();
 
 import jobRouter from "./routes/jobs.routes.js"
 
-
-app.use('/api/', jobRouter);
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+app.use('/', jobRouter);
 
 const PORT = process.env.PORT;
 

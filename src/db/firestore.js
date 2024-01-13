@@ -10,7 +10,7 @@ import * as firestoreinst from 'firebase-admin/firestore';
 
 firebaseinst.initializeApp({
   credential: firebaseinst.cert(
-    "src/config/serviceAccountKey.json"
+    "serviceAccountKey.json"
   )
 });
 
